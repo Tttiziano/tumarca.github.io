@@ -1,1 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>KODEX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    video {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .content {
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .product {
+      margin-top: 40px;
+    }
+
+    button {
+      background: black;
+      color: white;
+      padding: 15px 25px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    select {
+      padding: 10px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<video autoplay muted loop playsinline>
+  <source src="fondo.mp4" type="video/mp4">
+</video>
+
+<div class="content">
+  <h1>KODEX</h1>
+
+  <div class="product">
+    <h2>Remera Boxy Fit</h2>
+    <p>$35.000</p>
+
+    <select id="entrega">
+      <option value="Envío">Envío</option>
+      <option value="San Justo">Punto de encuentro - San Justo</option>
+      <option value="Casanova">Punto de encuentro - Casanova</option>
+      <option value="Ramos Mejía">Punto de encuentro - Ramos Mejía</option>
+    </select>
+
+    <br><br>
+    <button onclick="comprar()">Finalizar compra</button>
+  </div>
+</div>
+
+<script>
+function comprar() {
+  const entrega = document.getElementById("entrega").value;
+
+  const mensaje = `Hola! 👋
+Quiero comprar:
+
+Producto: Remera Boxy Fit
+Precio: $35.000
+Entrega: ${entrega}
+`;
+
+  const url = "https://wa.me/5491128774332?text=" + encodeURIComponent(mensaje);
+  window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
 
